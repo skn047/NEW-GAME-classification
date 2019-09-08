@@ -90,6 +90,10 @@ def test_final(model, device, test_loader):
                 # time.sleep(3)
                 print("target : {}".format(name_list[target[i]]))
                 print("pred : {}".format(name_list[pred[i]]))
+
+                # font = cv2.FONT_HERSHEY_SIMPLEX
+                # cv2.putText(image, '{}'.format(name_list[pred[i]]), (10, 150), font, 0.5, (255, 0, 0), 1, cv2.LINE_AA)
+                # cv2.putText(image, '{}'.format(name_list[pred[i]]), (10, 180), font, 0.5, (0, 0, 255), 1, cv2.LINE_AA)
                 cv2.imshow('result', image)
                 cv2.waitKey(0)
                 cv2.destroyAllWindows()
