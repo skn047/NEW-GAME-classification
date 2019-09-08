@@ -43,7 +43,7 @@ class MyDataSet(Dataset):
         return self.transform(image), int(label)
 
 
-imgDataset = MyDataSet('/home/naoki/Documents/newgame.csv', '/home/naoki/Pictures/anime_face/newgame!!/data/')
+imgDataset = MyDataSet('newgame.csv', 'data/')
 
 train_data, test_data = train_test_split(imgDataset, test_size=0.2)
 
@@ -110,3 +110,6 @@ optimizer = optim.Adam(model.parameters(), lr=0.0002900399340813237, weight_deca
 for epoch in range(1, 100 + 1):
     train(epoch, model, device, train_loader, optimizer)
     test(model, device, test_loader)
+
+    if epoch == 100:
+        torch.save(model.state_dict(), 'model')
